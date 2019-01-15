@@ -20,6 +20,7 @@
         android:id="@+id/action_insert_dummy_data"
         android:title="@string/action_insert_dummy_data"
         app:showAsAction="never" />
+    <!--ShowAsAction determines if shown af Icon in AppBar or in the overflow Menu (3 dots)-->
 
     <item
         android:id="@+id/action_delete_all_entries"

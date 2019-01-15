@@ -3,10 +3,14 @@ package com.example.android.pets.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
+
 import com.example.android.pets.data.PetContract.PetEntry;
 
 
 public class PetDbHelper extends SQLiteOpenHelper {
+
+    private final String LOG_TAG = this.getClass().getName();
 
     private static final String DATABASE_NAME = "shelter.db";
     private static final int DATABASE_VERSION = 1;
@@ -35,12 +39,14 @@ public class PetDbHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SQL_CREATE_TABLE);
-        onCreate(sqLiteDatabase);
+        Log.v(LOG_TAG, SQL_CREATE_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-//        sqLiteDatabase.execSQL(SQL_DELETE_TABLE);
+        sqLiteDatabase.execSQL(SQL_DELETE_TABLE);
+        onCreate(sqLiteDatabase);
+
 
     }
 
